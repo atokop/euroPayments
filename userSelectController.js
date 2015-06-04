@@ -1,8 +1,5 @@
 var myAppModule = angular.module('myApp', []);
 myAppModule.controller('userSelectController', function($scope, $http) {
-  myAppModule.run(function($http) {
-      $http.defaults.headers.common.push({'Origin':'http://www.google.com'});
-  });
   $scope.users = [{name: "me"}, {name: "you"}]
   $scope.usersLoaded=false;
 
