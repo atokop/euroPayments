@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Euro Payments</title>
+
+    <!--LOCAL-->
+    <link rel="stylesheet" href="deps/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="deps/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="res/docs.min.css">
+    <link rel="stylesheet" href="res/starter-template.css">
+    <link rel="stylesheet" href="res/styles.css">
+    <script src="deps/jquery-1.10.2.js"></script>
+    <script src="deps/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="deps/angular/angular.js"></script>
+    <script src="userSelectController.js"></script>
+    <!--CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="myApp" style="background-color: #6495ed">
+
+    <div class="container">
+      <div class="starter-template">
+        <h1>European Payments</h1>
+        <br><br>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8" ng-controller="userSelectController">
+            <h3 ng-show="!usersLoaded">Please Wait</h3>
+          <div ng-show="usersLoaded">
+            <h3>Pick User</h3>
+            <br>
+            <div class="col-sm-4 userDiv" ng-repeat="user in users">
+              <span style="height:40; width: 100%">{{user.name}}</span> <!-- TODO: MAKE TAKE UP ENTIRE TING-->
+              <img ng-show="user.photo" height=40 src="user.photo">
+              <img ng-show="!user.photo" height=40 src="res/defaultphoto.jpg">
+            </div>
+          </div>
+            
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
