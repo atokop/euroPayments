@@ -1,0 +1,34 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<!-- import the iron-input custom element -->
+<link rel="import" href="bower_components/iron-input/iron-input.html">
+<link rel="stylesheet" href="deps/bootstrap/dist/css/bootstrap.min.css">
+<script src="deps/jquery-1.10.2.js"></script>
+<script src="deps/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="userViewController.js"></script>
+
+<dom-module id="user-view">
+  <template>
+  <div ng-controller="userViewController">
+    <div class="col-sm-4">
+    </div>
+
+    This is <strong>{{owner}}</strong>'s editable-name-tag.
+    </p>
+    <!-- iron-input exposes a two-way bindable input value -->
+    <input is="iron-input" bind-value="{{owner}}"
+      placeholder="Your name here...">
+  </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "user-view",
+    properties: {
+      owner: {
+        type: String,
+        value: "Daniel"
+      }
+    }
+  });
+</script>

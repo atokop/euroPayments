@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,6 +16,11 @@
     <script src="deps/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="deps/angular/angular.js"></script>
     <script src="userSelectController.js"></script>
+    <!--POLYMER-->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="bower_components/iron-selector/iron-selector.html">
+    <link rel="import" href="bower_components/iron-image/iron-image.html">
+    <link rel="import" href="user-view.html">
     <!--CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
@@ -30,23 +34,36 @@
   </head>
   <body ng-app="myApp" style="background-color: #6495ed">
 
+
     <div class="container">
-      <div class="starter-template">
+      <div class="starter-template row">
         <h1>European Payments</h1>
         <br><br>
-        <div class="col-sm-2"></div>
+        <span class="col-sm-2"></span>
         <div class="col-sm-8" ng-controller="userSelectController">
             <h3 ng-show="!usersLoaded">Please Wait</h3>
-          <div ng-show="usersLoaded">
+          <iron-selector ng-show="usersLoaded">
+            <style>
+              .iron-selected {
+                background: #eee;
+              }
+            </style>
             <h3>Pick User</h3>
             <br>
-            <div class="col-sm-4 userDiv" ng-repeat="user in users">
-              <span style="height:40; width: 100%">{{user.name}}</span> <!-- TODO: MAKE TAKE UP ENTIRE TING-->
-              <img ng-show="user.photo" height=40 src="user.photo">
-              <img ng-show="!user.photo" height=40 src="res/defaultphoto.jpg">
+            <script>console.log("here");</script>
+            <div class="col-sm-3 userDiv" ng-repeat="user in users">
+              <iron-image ng-show="user.photo" style="height:75; width: 75;" sizing="contain" src="{{user.photo}}"></iron-image>
+              <script>console.log("there");</script>
+              <iron-image ng-show="!user.photo" style="height:75; width: 75;" sizing="contain" src="res/defaultphoto.jpg"></iron-image>
             </div>
-          </div>
-            
+          </iron-selector>
+        </div>
+        <span class="col-sm-2"></span>
+      </div>
+      <div>
+        <span class="col-sm-2"></span>
+        <div class="col-sm-8" style="text-align:center">
+          <user-view></user-view>
         </div>
         <div class="col-sm-2"></div>
       </div>
@@ -57,5 +74,4 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </body>
-
 </html>
